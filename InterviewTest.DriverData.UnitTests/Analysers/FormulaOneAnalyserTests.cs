@@ -16,7 +16,11 @@ namespace InterviewTest.DriverData.UnitTests.Analysers
 				DriverRating = 0.1231m
 			};
 
-			var actualResult = new FormulaOneAnalyser().Analyse(CannedDrivingData.History);
+			var formulaOneAnalyser = new FormulaOneAnalyser();
+
+			formulaOneAnalyser.AnalyzerData = new AnalyzerData() { SpeedLimit = 200m };
+
+			var actualResult = formulaOneAnalyser.Analyse(CannedDrivingData.History);
 
 			Assert.That(actualResult.AnalysedDuration, Is.EqualTo(expectedResult.AnalysedDuration));
 			Assert.That(actualResult.DriverRating, Is.EqualTo(expectedResult.DriverRating).Within(0.001m));

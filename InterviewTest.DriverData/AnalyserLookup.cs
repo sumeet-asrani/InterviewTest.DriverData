@@ -11,6 +11,8 @@ namespace InterviewTest.DriverData
 			{
 				case "friendly":
 					return new FriendlyAnalyser();
+				case "deliveryDriver":
+					return new DeliveryDriverAnalyser();
 
 				default:
 					throw new ArgumentOutOfRangeException(nameof(type), type, "Unrecognised analyser type");

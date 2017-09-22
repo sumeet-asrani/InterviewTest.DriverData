@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>InterviewTest.DriverData</RootNamespace>
     <AssemblyName>InterviewTest.DriverData</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,7 +47,10 @@
     <Compile Include="Analysers\FriendlyAnalyser.cs" />
     <Compile Include="Analysers\GetawayDriverAnalyser.cs" />
     <Compile Include="Analysers\IAnalyser.cs" />
+    <Compile Include="AnalysisData.cs" />
+    <Compile Include="AnalyzerData.cs" />
     <Compile Include="CannedData.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="HistoryAnalysis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Period.cs" />

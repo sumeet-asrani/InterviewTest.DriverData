@@ -16,7 +16,11 @@ namespace InterviewTest.DriverData.UnitTests.Analysers
 				DriverRating = 0.7638m
 			};
 
-			var actualResult = new DeliveryDriverAnalyser().Analyse(CannedDrivingData.History);
+			var deliveryDriverAnalyser = new DeliveryDriverAnalyser();
+
+			deliveryDriverAnalyser.AnalyzerData = new AnalyzerData() { Start = new TimeSpan(9, 0, 0), End = new TimeSpan(17, 0, 0), SpeedLimit = 30m };
+
+			var actualResult = deliveryDriverAnalyser.Analyse(CannedDrivingData.History);
 
 			Assert.That(actualResult.AnalysedDuration, Is.EqualTo(expectedResult.AnalysedDuration));
 			Assert.That(actualResult.DriverRating, Is.EqualTo(expectedResult.DriverRating).Within(0.001m));

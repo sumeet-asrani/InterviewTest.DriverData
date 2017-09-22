@@ -6,6 +6,8 @@ namespace InterviewTest.DriverData.Analysers
 	// BONUS: Why internal?
 	internal class FriendlyAnalyser : IAnalyser
 	{
+		public AnalyzerData AnalyzerData { get; set; }
+
 		public HistoryAnalysis Analyse(IReadOnlyCollection<Period> history)
 		{
 			return new HistoryAnalysis

@@ -25,7 +25,9 @@ namespace InterviewTest.Commands
 		{
 			var analysisType = arguments.Single();
 
-			_analyser = AnalyserLookup.GetAnalyser(analysisType);
+			//_analyser = AnalyserLookup.GetAnalyser(analysisType);
+
+			_analyser = AnalyserLookup.GetAnalyserFromDict(analysisType);
 
 			_analyser.AnalyzerData = analyserDataLookupDict[analysisType];
 		}

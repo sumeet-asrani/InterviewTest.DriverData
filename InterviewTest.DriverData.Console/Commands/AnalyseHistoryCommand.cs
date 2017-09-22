@@ -11,6 +11,8 @@ namespace InterviewTest.Commands
 		// BONUS: What's great about readonly?
 		private readonly IAnalyser _analyser;
 
+		private string InputFileName;
+
 		private static Dictionary<string, AnalyzerData> analyserDataLookupDict
 			= new Dictionary<string, AnalyzerData>
 		{
@@ -23,7 +25,9 @@ namespace InterviewTest.Commands
 
 		public AnalyseHistoryCommand(IReadOnlyCollection<string> arguments)
 		{
-			var analysisType = arguments.Single();
+			var analysisType = arguments.ElementAt(0);
+
+			InputFileName = arguments.ElementAt(1);
 
 			//_analyser = AnalyserLookup.GetAnalyser(analysisType);
 
@@ -34,6 +38,10 @@ namespace InterviewTest.Commands
 
 		public void Execute()
 		{
+			var data = CannedDrivingData.LoadHistoryData(InputFileName);
+
+			var analysisUsingInputData = _analyser.Analyse(data);
+
 			var analysis = _analyser.Analyse(CannedDrivingData.History);
 
 			Console.Out.WriteLine($"Analysed period: {analysis.AnalysedDuration:g}");

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 
 namespace InterviewTest.DriverData
 {
@@ -53,5 +55,46 @@ namespace InterviewTest.DriverData
 				AverageSpeed = 0m
 			}
 		};
+
+		public static List<Period> LoadHistoryData(string fileName)
+		{
+			//Pass a csv file name to this method
+			//File Format is as follows:
+			//{Start Time},{End Time},{Average Speed};
+			//Refer CannedDataInput.csv in InputFileFormat folder
+			//For executing using AnalyseHistoryCommand, pass an argument with the file name after the analyzer type
+
+			List<Period> history = new List<Period>();
+
+			Period period;
+
+			try
+			{
+				using (var reader = new StreamReader(fileName))
+				{
+					while (!reader.EndOfStream)
+					{
+						var line = reader.ReadLine().TrimEnd(';');
+						var values = line.Split(',');
+
+						period = new Period();
+
+						period.Start = DateTimeOffset.Parse(values[0], CultureInfo.InvariantCulture);
+
+						period.End = DateTimeOffset.Parse(values[1], CultureInfo.InvariantCulture);
+
+						period.AverageSpeed = Convert.ToDecimal(values[2]);
+
+						history.Add(period);
+					}
+				}
+			}
+			catch(Exception ex)
+			{
+				throw new Exception(string.Format("An error occured while importing data from file - {0}\nException message - {1}", fileName, ex.Message));
+			}
+
+			return history;
+		}
 	}
 }

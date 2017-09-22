@@ -15,6 +15,8 @@ namespace InterviewTest.DriverData
 					return new DeliveryDriverAnalyser();
 				case "formulaOne":
 					return new FormulaOneAnalyser();
+				case "getawayDriver":
+					return new GetawayDriverAnalyser();
 
 				default:
 					throw new ArgumentOutOfRangeException(nameof(type), type, "Unrecognised analyser type");

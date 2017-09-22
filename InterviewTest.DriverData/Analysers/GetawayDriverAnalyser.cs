@@ -99,6 +99,10 @@ namespace InterviewTest.DriverData.Analysers
 
 			var weightedAvgRating = ratingsList.WeightedAverage(r => r.DriverRating, r => r.AnalysedDuration);
 
+			//Impose Penalty for undocumented periods
+			if (unDocumentedPeriodDuration > 0)
+				weightedAvgRating *= AnalyzerData.PenaltyFactorForUndocumentedPeriod;
+
 			return new HistoryAnalysis
 			{
 				AnalysedDuration = ratingsList.Last().EndTime - ratingsList.First().StartTime - new TimeSpan(0, (int)unDocumentedPeriodDuration, 0),

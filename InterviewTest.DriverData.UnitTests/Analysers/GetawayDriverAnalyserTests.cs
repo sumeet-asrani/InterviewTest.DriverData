@@ -18,7 +18,7 @@ namespace InterviewTest.DriverData.UnitTests.Analysers
 
 			var getawayDriverAnalyser = new GetawayDriverAnalyser();
 
-			getawayDriverAnalyser.AnalyzerData = new AnalyzerData() { Start = new TimeSpan(13, 0, 0), End = new TimeSpan(14, 0, 0), SpeedLimit = 80m };
+			getawayDriverAnalyser.AnalyzerData = new AnalyzerData() { Start = new TimeSpan(13, 0, 0), End = new TimeSpan(14, 0, 0), SpeedLimit = 80m, PenaltyFactorForUndocumentedPeriod = 1m };
 
 			var actualResult = getawayDriverAnalyser.Analyse(CannedDrivingData.History);
 

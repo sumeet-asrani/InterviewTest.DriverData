@@ -18,7 +18,7 @@ namespace InterviewTest.DriverData.UnitTests.Analysers
 
 			var formulaOneAnalyser = new FormulaOneAnalyser();
 
-			formulaOneAnalyser.AnalyzerData = new AnalyzerData() { SpeedLimit = 200m };
+			formulaOneAnalyser.AnalyzerData = new AnalyzerData() { SpeedLimit = 200m, PenaltyFactorForUndocumentedPeriod = 1m };
 
 			var actualResult = formulaOneAnalyser.Analyse(CannedDrivingData.History);
 

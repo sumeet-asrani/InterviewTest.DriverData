@@ -9,5 +9,7 @@ namespace InterviewTest.DriverData
 		public TimeSpan End;
 
 		public decimal SpeedLimit;
+
+		public decimal PenaltyFactorForUndocumentedPeriod;
 	}
 }

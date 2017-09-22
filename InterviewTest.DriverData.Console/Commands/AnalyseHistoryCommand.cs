@@ -14,10 +14,10 @@ namespace InterviewTest.Commands
 		private static Dictionary<string, AnalyzerData> analyserDataLookupDict
 			= new Dictionary<string, AnalyzerData>
 		{
-			{ "friendly", new AnalyzerData() { }  },
-			{ "deliveryDriver", new AnalyzerData() { Start = new TimeSpan(9, 0, 0), End = new TimeSpan(17, 0, 0), SpeedLimit = 30m } },
-			{ "formulaOne", new AnalyzerData() { SpeedLimit = 200m } },
-			{ "getawayDriver", new AnalyzerData() { Start = new TimeSpan(13, 0, 0), End = new TimeSpan(14, 0, 0), SpeedLimit = 80m } }
+			{ "friendly", new AnalyzerData() { PenaltyFactorForUndocumentedPeriod = 0.5m }  },
+			{ "deliveryDriver", new AnalyzerData() { Start = new TimeSpan(9, 0, 0), End = new TimeSpan(17, 0, 0), SpeedLimit = 30m, PenaltyFactorForUndocumentedPeriod = 0.5m } },
+			{ "formulaOne", new AnalyzerData() { SpeedLimit = 200m, PenaltyFactorForUndocumentedPeriod = 0.5m } },
+			{ "getawayDriver", new AnalyzerData() { Start = new TimeSpan(13, 0, 0), End = new TimeSpan(14, 0, 0), SpeedLimit = 80m, PenaltyFactorForUndocumentedPeriod = 0.5m } }
 
 		};
 

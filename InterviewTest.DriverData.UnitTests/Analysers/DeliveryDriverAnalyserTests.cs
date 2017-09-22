@@ -18,7 +18,7 @@ namespace InterviewTest.DriverData.UnitTests.Analysers
 
 			var deliveryDriverAnalyser = new DeliveryDriverAnalyser();
 
-			deliveryDriverAnalyser.AnalyzerData = new AnalyzerData() { Start = new TimeSpan(9, 0, 0), End = new TimeSpan(17, 0, 0), SpeedLimit = 30m };
+			deliveryDriverAnalyser.AnalyzerData = new AnalyzerData() { Start = new TimeSpan(9, 0, 0), End = new TimeSpan(17, 0, 0), SpeedLimit = 30m, PenaltyFactorForUndocumentedPeriod = 1m };
 
 			var actualResult = deliveryDriverAnalyser.Analyse(CannedDrivingData.History);
 
